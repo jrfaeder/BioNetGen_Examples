@@ -1,0 +1,41 @@
+begin model
+
+begin molecule types
+
+X(state~1~2~3)
+
+end molecule types
+
+begin seed species
+
+X(state~1) 100
+
+X(state~2) 200
+
+end seed species
+
+begin observables
+
+Molecules X1 X(state~1)
+
+Molecules X2 X(state~2)
+
+Molecules X3 X(state~3)
+
+end observables
+
+begin reaction rules
+
+X()->X(state~3) 1
+
+end reaction rules
+
+end model
+
+begin actions
+
+generate_network({overwrite=>1})
+writeXML()
+simulate({method=>"ode",t_end=>10,n_steps=>100})
+
+end actions

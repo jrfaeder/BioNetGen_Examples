@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by BioNetGen 2.7.1  -->
+<sbml xmlns="http://www.sbml.org/sbml/level3" level="3" version="1">
+  <model id="emptyMolecule">
+    <ListOfParameters>
+      <Parameter id="_rateLaw1" type="Constant" value="1" expr="1"/>
+    </ListOfParameters>
+    <ListOfMoleculeTypes>
+      <MoleculeType id="X">
+        <ListOfComponentTypes>
+          <ComponentType id="state">
+            <ListOfAllowedStates>
+              <AllowedState id="1"/>
+              <AllowedState id="2"/>
+              <AllowedState id="3"/>
+            </ListOfAllowedStates>
+          </ComponentType>
+        </ListOfComponentTypes>
+      </MoleculeType>
+    </ListOfMoleculeTypes>
+    <ListOfCompartments>
+    </ListOfCompartments>
+    <ListOfSpecies>
+      <Species id="S1"  concentration="100" name="X(state~1)">
+        <ListOfMolecules>
+          <Molecule id="S1_M1" name="X">
+            <ListOfComponents>
+              <Component id="S1_M1_C1" name="state" state="1" numberOfBonds="0"/>
+            </ListOfComponents>
+          </Molecule>
+        </ListOfMolecules>
+      </Species>
+      <Species id="S2"  concentration="200" name="X(state~2)">
+        <ListOfMolecules>
+          <Molecule id="S2_M1" name="X">
+            <ListOfComponents>
+              <Component id="S2_M1_C1" name="state" state="2" numberOfBonds="0"/>
+            </ListOfComponents>
+          </Molecule>
+        </ListOfMolecules>
+      </Species>
+      <Species id="S3"  concentration="0" name="X(state~3)">
+        <ListOfMolecules>
+          <Molecule id="S3_M1" name="X">
+            <ListOfComponents>
+              <Component id="S3_M1_C1" name="state" state="3" numberOfBonds="0"/>
+            </ListOfComponents>
+          </Molecule>
+        </ListOfMolecules>
+      </Species>
+    </ListOfSpecies>
+    <ListOfReactionRules>
+      <ReactionRule id="RR1" name="_R1" symmetry_factor="1">
+        <ListOfReactantPatterns>
+          <ReactantPattern id="RR1_RP1">
+            <ListOfMolecules>
+              <Molecule id="RR1_RP1_M1" name="X"/>
+            </ListOfMolecules>
+          </ReactantPattern>
+        </ListOfReactantPatterns>
+        <ListOfProductPatterns>
+          <ProductPattern id="RR1_PP1">
+            <ListOfMolecules>
+              <Molecule id="RR1_PP1_M1" name="X">
+                <ListOfComponents>
+                  <Component id="RR1_PP1_M1_C1" name="state" state="3" numberOfBonds="0"/>
+                </ListOfComponents>
+              </Molecule>
+            </ListOfMolecules>
+          </ProductPattern>
+        </ListOfProductPatterns>
+        <RateLaw id="RR1_RateLaw" type="Ele" totalrate="0">
+          <ListOfRateConstants>
+            <RateConstant value="_rateLaw1"/>
+          </ListOfRateConstants>
+        </RateLaw>
+        <Map>
+          <MapItem sourceID="RR1_RP1_M1"/>
+        </Map>
+        <ListOfOperations>
+          <Add id="RR1_PP1_M1"/>
+          <Delete id="RR1_RP1" DeleteMolecules="0"/>
+        </ListOfOperations>
+      </ReactionRule>
+    </ListOfReactionRules>
+    <ListOfObservables>
+      <Observable id="O1" name="X1" type="Molecules">
+        <ListOfPatterns>
+          <Pattern id="O1_P1">
+            <ListOfMolecules>
+              <Molecule id="O1_P1_M1" name="X">
+                <ListOfComponents>
+                  <Component id="O1_P1_M1_C1" name="state" state="1" numberOfBonds="0"/>
+                </ListOfComponents>
+              </Molecule>
+            </ListOfMolecules>
+          </Pattern>
+        </ListOfPatterns>
+      </Observable>
+      <Observable id="O2" name="X2" type="Molecules">
+        <ListOfPatterns>
+          <Pattern id="O2_P1">
+            <ListOfMolecules>
+              <Molecule id="O2_P1_M1" name="X">
+                <ListOfComponents>
+                  <Component id="O2_P1_M1_C1" name="state" state="2" numberOfBonds="0"/>
+                </ListOfComponents>
+              </Molecule>
+            </ListOfMolecules>
+          </Pattern>
+        </ListOfPatterns>
+      </Observable>
+      <Observable id="O3" name="X3" type="Molecules">
+        <ListOfPatterns>
+          <Pattern id="O3_P1">
+            <ListOfMolecules>
+              <Molecule id="O3_P1_M1" name="X">
+                <ListOfComponents>
+                  <Component id="O3_P1_M1_C1" name="state" state="3" numberOfBonds="0"/>
+                </ListOfComponents>
+              </Molecule>
+            </ListOfMolecules>
+          </Pattern>
+        </ListOfPatterns>
+      </Observable>
+    </ListOfObservables>
+    <ListOfFunctions>
+    </ListOfFunctions>
+  </model>
+</sbml>
